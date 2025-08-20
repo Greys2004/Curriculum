@@ -1173,6 +1173,32 @@ section {
 }
 
 
-
+.portfolio-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.portfolio-card img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+.card-title {
+  font-weight: 600;
+}
+.card-text {
+  font-size: 0.9rem;
+}
+.btn-primary {
+  background-color: #4e73df;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #2e59d9;
+}
 
 
