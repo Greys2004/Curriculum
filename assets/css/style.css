@@ -241,13 +241,17 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/fondo.jpeg") top center;
+  background: radial-gradient(circle at 85% 15%, rgba(14, 165, 233, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%),
+              radial-gradient(circle at 15% 85%, rgba(99, 102, 241, 0.35) 0%, rgba(3, 7, 18, 0.9) 60%),
+              linear-gradient(135deg, #0b1329 0%, #030712 100%);
   background-size: cover;
+  position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(5, 13, 24, 0.3);
+  background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.06) 0%, rgba(5, 13, 24, 0.75) 100%),
+              url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1106,107 +1110,225 @@ section {
 }
 
 
-.skills.section-bg {
-  background: #f8f9fa; /* Fondo suave */
-  padding: 60px 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/*--------------------------------------------------------------
+# Premium Custom Extensions & Styling System
+--------------------------------------------------------------*/
+:root {
+  --primary-gradient: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  --accent-glow: rgba(2, 132, 199, 0.35);
+  --card-hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
-.section-title {
+#header .profile img {
+  margin: 15px auto 10px auto;
+  display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 4px solid #2c2f3f;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Hero Section CTA */
+#hero .hero-container {
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.section-title h2 {
-  font-size: 28px;
+#hero .hero-cta-group {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background: var(--primary-gradient);
+  color: #ffffff !important;
+  padding: 12px 28px;
+  border-radius: 30px;
   font-weight: 600;
-  color: #222;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
+  transition: all 0.3s ease;
 }
 
-.section-title p {
-  font-size: 16px;
-  color: #555;
-  margin-top: 5px;
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.5);
+}
+
+.btn-hero-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff !important;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  border-color: #ffffff;
+}
+
+/* GPA Excellence Badge */
+.gpa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  color: #92400e;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.gpa-badge i {
+  color: #d97706;
+}
+
+/* Skills Grid */
+.skills.section-bg {
+  background: #f8fafc;
+  padding: 55px 0;
+}
+
+.skills-category {
+  margin: 35px 0 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 16px;
 }
 
 .skill-item {
-  background: #fff;
-  padding: 20px;
-  border-left: 4px solid #4facfe; 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #ffffff;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Empuja el tiempo más abajo */
-  height: 140px; /* Aumenta la altura para separar del título */
+  align-items: center;
+  gap: 14px;
+  height: auto;
+  min-height: 80px;
 }
 
 .skill-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 22px rgba(2, 132, 199, 0.12);
+  border-color: #bae6fd;
+}
+
+.skill-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon-wrapper {
+  background: #e0f2fe;
+  transform: scale(1.08);
+}
+
+.skill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
 }
 
 .skill-info h3 {
-  font-size: 16px;
-  color: #222;
-  margin: 0 0 10px 0;
-  min-height: 40px; /* Altura mínima uniforme para todos los títulos */
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .skill-info .time {
-  font-size: 14px;
-  font-weight: 500;
-  background: #d4efff;
-  padding: 4px 10px;
-  border-radius: 12px;
-  color: #1a1a1a;
-  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0284c7;
 }
 
-
+/* Portfolio Minimalist Cards */
 .portfolio-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
   overflow: hidden;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
+
 .portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
 }
+
 .portfolio-card img {
   object-fit: cover;
-  height: 200px;
+  height: 170px;
   width: 100%;
+  background-color: #f8fafc;
+  padding: 10px;
+  transition: opacity 0.3s ease;
 }
-.card-title {
+
+.portfolio-card .card-body {
+  padding: 1.2rem;
+}
+
+.portfolio-card .card-title {
+  font-size: 1.05rem;
   font-weight: 600;
-}
-.card-text {
-  font-size: 0.9rem;
-}
-.btn-primary {
-  background-color: #4e73df;
-  border: none;
-}
-.btn-primary:hover {
-  background-color: #2e59d9;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
 }
 
-.skills-category {
-  margin: 40px 0 20px;
-  font-weight: 700;
-  color: #173b6c;
+.portfolio-card .card-text {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
+/* Restored Experience Section Styling */
 .experience-card {
   background: #ffffff;
   padding: 32px;
@@ -1295,6 +1417,189 @@ section {
   font-size: 12px;
   font-weight: 500;
 }
+
+/*--------------------------------------------------------------
+# Editorial & Minimalist Portfolio Banner Cards
+--------------------------------------------------------------*/
+.portfolio-banner {
+  height: 165px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-banner .banner-sidebar {
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 10px 0;
+  user-select: none;
+}
+
+.portfolio-banner .banner-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 24px;
+  position: relative;
+}
+
+.portfolio-banner .banner-main .banner-title {
+  font-family: "Poppins", "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.portfolio-banner .banner-main .banner-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.portfolio-banner .banner-icon {
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  font-size: 52px;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-card:hover .banner-icon {
+  transform: scale(1.15) rotate(-6deg);
+  opacity: 1;
+}
+
+/* Palette Variations Inspired by Editorial Reference Image */
+/* 1. Django / Python - Terracotta & Blush */
+.banner-django {
+  background-color: #fceade;
+  color: #8c3b31;
+}
+.banner-django .banner-sidebar {
+  background-color: #c86355;
+}
+
+/* 2. MAUI / .NET - Soft Purple & Lavender */
+.banner-maui {
+  background-color: #f3ebf9;
+  color: #5b3082;
+}
+.banner-maui .banner-sidebar {
+  background-color: #8b5cf6;
+}
+
+/* 3. Kotlin / Android - Sage & Mint Green */
+.banner-kotlin {
+  background-color: #eaf6f0;
+  color: #1e593e;
+}
+.banner-kotlin .banner-sidebar {
+  background-color: #2e8b57;
+}
+
+/* 4. HTML/CSS Web - Warm Sand & Amber */
+.banner-web {
+  background-color: #fef4e5;
+  color: #8d5309;
+}
+.banner-web .banner-sidebar {
+  background-color: #d97706;
+}
+
+/* 5. Image Processing - Ice Blue & Slate */
+.banner-image-proc {
+  background-color: #e9f5fe;
+  color: #1e40af;
+}
+.banner-image-proc .banner-sidebar {
+  background-color: #2563eb;
+}
+
+/* 6. Pill Detection - Teal & Soft Aqua */
+.banner-pill-det {
+  background-color: #e6f7f5;
+  color: #0f6259;
+}
+.banner-pill-det .banner-sidebar {
+  background-color: #0d9488;
+}
+
+/* 7. RecetarioApp - Warm Rose & Blush */
+.banner-recetario {
+  background-color: #fdeef1;
+  color: #861936;
+}
+.banner-recetario .banner-sidebar {
+  background-color: #e11d48;
+}
+
+/* 8. Store App - Crisp Indigo & Periwinkle */
+.banner-store {
+  background-color: #eef2ff;
+  color: #312e81;
+}
+.banner-store .banner-sidebar {
+  background-color: #4f46e5;
+}
+
+/* 9. NatureApp - Soft Forest & Emerald */
+.banner-nature {
+  background-color: #ecfdf5;
+  color: #064e3b;
+}
+.banner-nature .banner-sidebar {
+  background-color: #059669;
+}
+
+/* 10. VR & 3D Design - Electric Purple & Violet */
+.banner-vr {
+  background-color: #f5f3ff;
+  color: #5b21b6;
+}
+.banner-vr .banner-sidebar {
+  background-color: #7c3aed;
+}
+
+/* Certifications Section Styling */
+.cert-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px !important;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(2, 132, 199, 0.12) !important;
+}
+
+.cert-icon-box {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+
 
 
 
