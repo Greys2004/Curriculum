@@ -14,6 +14,13 @@ body {
   color: #272829;
 }
 
+/* Ensure all sections are always 100% visible regardless of scroll animations */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
 a {
   color: #149ddd;
   text-decoration: none;
@@ -1576,6 +1583,24 @@ section {
 }
 .banner-vr .banner-sidebar {
   background-color: #7c3aed;
+}
+
+/* 11. Reportes Urbanos - Warm Amber & Rust */
+.banner-urban {
+  background-color: #fff7ed;
+  color: #9a3412;
+}
+.banner-urban .banner-sidebar {
+  background-color: #ea580c;
+}
+
+/* 12. VetCare - Soft Mint & Emerald */
+.banner-vet {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+.banner-vet .banner-sidebar {
+  background-color: #16a34a;
 }
 
 /* Certifications Section Styling */
