@@ -92,7 +92,7 @@
     <div class="hero-container">
       <h1>Greys Almanza</h1>
       <p>Soy <span class="typed"
-          data-typed-items="Desarrolladora Full Stack Jr., Estudiante de Ing. de Software, &amp; Cloud"></span>
+          data-typed-items="Desarrolladora Full Stack Jr., Estudiante de Ing. de Software, Creadora de Aplicaciones Web y Móviles"></span>
       </p>
 
       <!-- Strategic Action Buttons -->
@@ -1052,15 +1052,23 @@
                     <h5 class="card-title">Reportes Urbanos</h5>
                     <p class="card-text flex-grow-1">Plataforma para la gestión y reporte ciudadano de incidencias en
                       infraestructura urbana.</p>
-                    <div class="mt-auto pt-2 border-top d-flex gap-1">
-                      <a href="https://github.com/Greys2004/GeoMap" target="_blank"
-                        class="btn btn-dark btn-sm flex-fill">
-                        <i class="bx bxl-github me-1"></i> Repositorio
-                      </a>
-                      <button onclick="openGallery('urbanos')"
-                        class="btn btn-outline-warning btn-sm flex-fill text-dark">
-                        <i class="bi bi-images me-1"></i> Galería
-                      </button>
+                    <div class="mt-auto pt-2 border-top d-grid gap-1">
+                      <div class="d-flex gap-1">
+                        <a href="https://geo-map-gilt.vercel.app/" target="_blank"
+                          class="btn btn-primary btn-sm flex-fill">🚀 Ver App</a>
+                        <a href="https://geo-map-gilt.vercel.app/api-docs/" target="_blank"
+                          class="btn btn-info btn-sm text-white flex-fill">📑 Swagger</a>
+                      </div>
+                      <div class="d-flex gap-1">
+                        <a href="https://github.com/Greys2004/GeoMap" target="_blank"
+                          class="btn btn-dark btn-sm flex-fill">
+                          <i class="bx bxl-github me-1"></i> Repositorio
+                        </a>
+                        <button onclick="openGallery('urbanos')"
+                          class="btn btn-outline-warning btn-sm flex-fill text-dark">
+                          <i class="bi bi-images me-1"></i> Galería
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1113,21 +1121,27 @@
 
               <!-- Certificación 1: AWS / Cloud -->
               <div class="col-lg-4 col-md-6">
-                <div class="cert-card h-100 p-4 bg-white shadow-sm border border-light-subtle d-flex flex-column">
-                  <div class="d-flex align-items-center mb-3">
-                    <div class="cert-icon-box text-warning bg-warning-subtle rounded-3 p-3 me-3">
-                      <i class="bx bxl-aws fs-2"></i>
+                <div class="cert-card-v2">
+                  <div class="cert-badge-header">
+                    <div class="cert-icon-circle text-warning bg-warning-subtle">
+                      <i class="bx bxl-aws"></i>
                     </div>
-                    <div>
-                      <h5 class="fw-bold mb-1">Fundamentos AWS &amp; Cloud</h5>
-                      <span class="badge bg-primary-subtle text-primary">Cloud Computing</span>
-                    </div>
+                    <span class="cert-tag-verified bg-warning-subtle text-dark">
+                      <i class="bi bi-patch-check-fill text-warning me-1"></i> Cloud AWS
+                    </span>
                   </div>
-                  <p class="text-muted fs-6 flex-grow-1">Formación en arquitectura e infraestructura en la nube AWS,
-                    despliegue en EC2, S3, Docker y CI/CD.</p>
-                  <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                    <span class="small text-secondary"><i class="bi bi-calendar-event me-1"></i> 2025</span>
-                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>
+                  <h5 class="cert-title-v2">Fundamentos AWS &amp; Cloud</h5>
+                  <p class="cert-desc-v2">Formación en arquitectura e infraestructura en la nube AWS, despliegue en EC2,
+                    S3, contenedores Docker y pipelines CI/CD.</p>
+                  <div class="cert-pills">
+                    <span class="cert-pill-item">AWS EC2</span>
+                    <span class="cert-pill-item">AWS S3</span>
+                    <span class="cert-pill-item">Docker</span>
+                    <span class="cert-pill-item">CI/CD</span>
+                  </div>
+                  <div class="cert-footer-v2">
+                    <span><i class="bi bi-calendar3 me-1"></i> 2025</span>
+                    <span class="fw-semibold text-success"><i class="bi bi-check-circle-fill me-1"></i>
                       Completado</span>
                   </div>
                 </div>
@@ -1135,22 +1149,27 @@
 
               <!-- Certificación 2: Full Stack & APIs -->
               <div class="col-lg-4 col-md-6">
-                <div class="cert-card h-100 p-4 bg-white shadow-sm border border-light-subtle d-flex flex-column">
-                  <div class="d-flex align-items-center mb-3">
-                    <div class="cert-icon-box text-primary bg-primary-subtle rounded-3 p-3 me-3">
-                      <i class="bi bi-code-square fs-2"></i>
+                <div class="cert-card-v2">
+                  <div class="cert-badge-header">
+                    <div class="cert-icon-circle text-primary bg-primary-subtle">
+                      <i class="bi bi-code-square"></i>
                     </div>
-                    <div>
-                      <h5 class="fw-bold mb-1">Desarrollo Full Stack &amp; APIs REST</h5>
-                      <span class="badge bg-info-subtle text-info">Backend &amp; Frontend</span>
-                    </div>
+                    <span class="cert-tag-verified bg-primary-subtle text-primary">
+                      <i class="bi bi-patch-check-fill me-1"></i> Full Stack
+                    </span>
                   </div>
-                  <p class="text-muted fs-6 flex-grow-1">Diseño de APIs REST con Python, .NET Core, Node.js, TypeScript
-                    y
-                    documentación OpenAPI/Swagger.</p>
-                  <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                    <span class="small text-secondary"><i class="bi bi-calendar-event me-1"></i> 2025</span>
-                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>
+                  <h5 class="cert-title-v2">Desarrollo Full Stack &amp; APIs REST</h5>
+                  <p class="cert-desc-v2">Diseño y construcción de APIs RESTful con Python, .NET Core, Node.js,
+                    TypeScript y especificación Swagger / OpenAPI.</p>
+                  <div class="cert-pills">
+                    <span class="cert-pill-item">Python</span>
+                    <span class="cert-pill-item">.NET Core</span>
+                    <span class="cert-pill-item">Node.js</span>
+                    <span class="cert-pill-item">Swagger</span>
+                  </div>
+                  <div class="cert-footer-v2">
+                    <span><i class="bi bi-calendar3 me-1"></i> 2025</span>
+                    <span class="fw-semibold text-success"><i class="bi bi-check-circle-fill me-1"></i>
                       Completado</span>
                   </div>
                 </div>
@@ -1158,22 +1177,27 @@
 
               <!-- Certificación 3: Mobile Development -->
               <div class="col-lg-4 col-md-6">
-                <div class="cert-card h-100 p-4 bg-white shadow-sm border border-light-subtle d-flex flex-column">
-                  <div class="d-flex align-items-center mb-3">
-                    <div class="cert-icon-box text-success bg-success-subtle rounded-3 p-3 me-3">
-                      <i class="bi bi-phone-vibe fs-2"></i>
+                <div class="cert-card-v2">
+                  <div class="cert-badge-header">
+                    <div class="cert-icon-circle text-success bg-success-subtle">
+                      <i class="bi bi-phone-vibe"></i>
                     </div>
-                    <div>
-                      <h5 class="fw-bold mb-1">Desarrollo Móvil Nativo &amp; Cross-Platform</h5>
-                      <span class="badge bg-success-subtle text-success">Android &amp; Mobile</span>
-                    </div>
+                    <span class="cert-tag-verified bg-success-subtle text-success">
+                      <i class="bi bi-patch-check-fill me-1"></i> Mobile
+                    </span>
                   </div>
-                  <p class="text-muted fs-6 flex-grow-1">Desarrollo de aplicaciones móviles con Kotlin (Jetpack
-                    Compose),
-                    .NET MAUI y SwiftUI.</p>
-                  <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                    <span class="small text-secondary"><i class="bi bi-calendar-event me-1"></i> 2024</span>
-                    <span class="badge bg-success-subtle text-success"><i class="bi bi-check-circle-fill me-1"></i>
+                  <h5 class="cert-title-v2">Desarrollo Móvil Nativo &amp; Cross-Platform</h5>
+                  <p class="cert-desc-v2">Desarrollo de aplicaciones móviles utilizando Kotlin con Jetpack Compose, .NET
+                    MAUI y SwiftUI para iOS.</p>
+                  <div class="cert-pills">
+                    <span class="cert-pill-item">Kotlin</span>
+                    <span class="cert-pill-item">Jetpack Compose</span>
+                    <span class="cert-pill-item">.NET MAUI</span>
+                    <span class="cert-pill-item">SwiftUI</span>
+                  </div>
+                  <div class="cert-footer-v2">
+                    <span><i class="bi bi-calendar3 me-1"></i> 2024</span>
+                    <span class="fw-semibold text-success"><i class="bi bi-check-circle-fill me-1"></i>
                       Completado</span>
                   </div>
                 </div>
@@ -1380,6 +1404,9 @@
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
   <!-- Universal Gallery Modal -->
   <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
