@@ -1491,13 +1491,6 @@
       }
     };
 
-    function handleVideoError(vidElem) {
-      vidElem.style.display = 'none';
-      if (vidElem.nextElementSibling) {
-        vidElem.nextElementSibling.style.display = 'flex';
-      }
-    }
-
     function switchTheaterVideo(src, index, total, btnElem) {
       var player = document.getElementById('mainTheaterVideo');
       var source = document.getElementById('mainTheaterSource');
@@ -1505,9 +1498,6 @@
       
       if (player && source) {
         source.src = src;
-        player.style.display = 'block';
-        var fallbackBox = player.nextElementSibling;
-        if (fallbackBox) fallbackBox.style.display = 'none';
         player.load();
         player.play().catch(function(){});
       }
@@ -1557,14 +1547,9 @@
 
           // Reproductor principal estilo Cine
           html += '<div class="ratio ratio-16x9 rounded-4 overflow-hidden bg-black shadow-sm mb-3 border">';
-          html += '<video id="mainTheaterVideo" controls autoplay preload="metadata" class="w-100 h-100" onerror="handleVideoError(this);">';
+          html += '<video id="mainTheaterVideo" controls preload="metadata" class="w-100 h-100">';
           html += '<source id="mainTheaterSource" src="' + allVideos[0] + '" type="video/mp4">';
           html += '</video>';
-          html += '<div class="w-100 h-100 bg-dark text-white p-4 d-flex flex-column align-items-center justify-content-center text-center" style="display:none;">';
-          html += '<i class="bi bi-film display-4 text-warning mb-2"></i>';
-          html += '<h6 class="fw-bold">Demostración Multimedia</h6>';
-          html += '<p class="text-secondary small mb-0">Video HD disponible en el entorno local o repositorio de desarrollo.</p>';
-          html += '</div>';
           html += '</div>';
 
           // Carrusel Selector de Escenas / Videos
@@ -1588,14 +1573,9 @@
           html += '<span class="text-muted font-monospace small">' + fileName + '</span>';
           html += '</div>';
           html += '<div class="ratio ratio-16x9 rounded-4 overflow-hidden bg-black shadow-sm border">';
-          html += '<video controls preload="metadata" class="w-100 h-100" onerror="handleVideoError(this);">';
+          html += '<video controls preload="metadata" class="w-100 h-100">';
           html += '<source src="' + vid + '" type="video/mp4">';
           html += '</video>';
-          html += '<div class="w-100 h-100 bg-dark text-white p-4 d-flex flex-column align-items-center justify-content-center text-center" style="display:none;">';
-          html += '<i class="bi bi-film display-4 text-warning mb-2"></i>';
-          html += '<h6 class="fw-bold">Demostración Multimedia</h6>';
-          html += '<p class="text-secondary small mb-0">Video HD disponible en el entorno local o repositorio de desarrollo.</p>';
-          html += '</div>';
           html += '</div>';
           html += '</div>';
         }
