@@ -1439,21 +1439,63 @@
   <!-- Dynamic Auto-Detection Gallery Handler Script -->
   <script>
     var projectMediaData = {
-      'vr': { title: 'Diseño en Realidad Virtual & 3D', folder: 'assets/gallery/vr/', photos: [], videos: [] },
-      'store': { title: 'Sistema de Gestión de Tiendas', folder: 'assets/gallery/store-app/', photos: [], videos: [] },
-      'pastillas': { title: 'Detección de Pastillas', folder: 'assets/gallery/pastillas/', photos: [], videos: [] },
-      'nature': { title: 'NatureApp Cloud & AI', folder: 'assets/gallery/nature-app/', photos: [], videos: [] },
-      'recetario': { title: 'RecetarioApp', folder: 'assets/gallery/recetario/', photos: [], videos: [] },
-      'urbanos': { title: 'Reportes Urbanos', folder: 'assets/gallery/reportes-urbanos/', photos: [], videos: [] },
-      'vetcare': { title: 'VetCare', folder: 'assets/gallery/vetcare/', photos: [], videos: [] }
+      'vr': {
+        title: 'Diseño en Realidad Virtual & 3D',
+        folder: 'assets/gallery/vr/',
+        photos: [],
+        videos: [
+          'assets/gallery/vr/1.mp4',
+          'assets/gallery/vr/2.mp4',
+          'assets/gallery/vr/3.mp4',
+          'assets/gallery/vr/4.mp4',
+          'assets/gallery/vr/5.mp4',
+          'assets/gallery/vr/6.mp4',
+          'assets/gallery/vr/7.mp4'
+        ]
+      },
+      'store': {
+        title: 'Sistema de Gestión de Tiendas',
+        folder: 'assets/gallery/store-app/',
+        photos: [],
+        videos: ['assets/gallery/store-app/1.mp4']
+      },
+      'pastillas': {
+        title: 'Detección de Pastillas',
+        folder: 'assets/gallery/pastillas/',
+        photos: [],
+        videos: ['assets/gallery/pastillas/1.mp4']
+      },
+      'nature': {
+        title: 'NatureApp Cloud & AI',
+        folder: 'assets/gallery/nature-app/',
+        photos: ['assets/img/portfolio/nature_app.png'],
+        videos: ['assets/gallery/nature-app/1.mp4']
+      },
+      'recetario': {
+        title: 'RecetarioApp',
+        folder: 'assets/gallery/recetario/',
+        photos: [],
+        videos: ['assets/gallery/recetario/1.mp4']
+      },
+      'urbanos': {
+        title: 'Reportes Urbanos',
+        folder: 'assets/gallery/reportes-urbanos/',
+        photos: ['assets/img/portfolio/image_processing.png'],
+        videos: ['assets/gallery/reportes-urbanos/1.mp4']
+      },
+      'vetcare': {
+        title: 'VetCare',
+        folder: 'assets/gallery/vetcare/',
+        photos: [],
+        videos: ['assets/gallery/vetcare/1.mp4']
+      }
     };
 
-    // Motor de Detección Automática por escaneo de archivos (escanea hasta 30 de cada tipo)
+    // Motor de Detección Automática por escaneo de archivos
     async function autoDetectMedia(folder) {
       var imageCandidates = ['demo.png', 'demo.jpg', 'preview.png', 'preview.jpg', 'main.png', 'main.jpg'];
       var videoCandidates = ['demo.mp4', 'recorrido.mp4', 'video.mp4', 'preview.mp4'];
 
-      // Generar automáticamente del 1 al 30 para videos e imágenes
       for (var i = 1; i <= 30; i++) {
         imageCandidates.push(i + '.png', i + '.jpg', i + '.jpeg', i + '.webp', 'foto' + i + '.jpg', 'foto' + i + '.png', 'captura' + i + '.png', 'captura' + i + '.jpg');
         videoCandidates.push(i + '.mp4', i + '.mov', i + '.webm', i + '.avi', 'video' + i + '.mp4', 'demo' + i + '.mp4');
@@ -1475,11 +1517,7 @@
         return new Promise(function (resolve) {
           var vid = document.createElement('video');
           vid.onloadedmetadata = function () { resolve(src); };
-          vid.onerror = function () {
-            fetch(src, { method: 'HEAD' })
-              .then(function (r) { resolve(r.ok ? src : null); })
-              .catch(function () { resolve(null); });
-          };
+          vid.onerror = function () { resolve(null); };
           vid.src = src;
         });
       }
@@ -1503,18 +1541,20 @@
 
       titleElem.innerHTML = '<i class="bi bi-images text-primary me-2"></i> Galería — ' + media.title;
 
-      // Mostrar cargador mientras escanea
-      bodyElem.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary me-2" role="status"></div><span class="fw-semibold text-secondary">Escaneando archivos automáticamente en ' + media.folder + '...</span></div>';
+      // Carga inmediata de medios registrados
+      var allPhotos = Array.from(new Set(media.photos || []));
+      var allVideos = Array.from(new Set(media.videos || []));
+
+      // Si no hay registrados, intentar auto-detección
+      if (allPhotos.length === 0 && allVideos.length === 0) {
+        bodyElem.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary me-2" role="status"></div><span class="fw-semibold text-secondary">Cargando galería...</span></div>';
+        var detected = await autoDetectMedia(media.folder);
+        allPhotos = detected.photos;
+        allVideos = detected.videos;
+      }
 
       var modal = new bootstrap.Modal(document.getElementById('galleryModal'));
       modal.show();
-
-      // Ejecutar detección automática
-      var detected = await autoDetectMedia(media.folder);
-
-      // Combinar detectados con registrados manualmente (sin duplicados)
-      var allPhotos = Array.from(new Set((media.photos || []).concat(detected.photos)));
-      var allVideos = Array.from(new Set((media.videos || []).concat(detected.videos)));
 
       var hasPhotos = allPhotos.length > 0;
       var hasVideos = allVideos.length > 0;
@@ -1524,7 +1564,7 @@
       if (hasPhotos || hasVideos) {
         html += '<div class="gallery-container">';
 
-        // Sección de Videos si existen (1 o varios)
+        // Sección de Videos si existen
         if (hasVideos) {
           html += '<h6 class="fw-bold mb-3 text-dark d-flex align-items-center"><i class="bi bi-film text-danger fs-5 me-2"></i> Demostraciones en Video (' + allVideos.length + ')</h6>';
           html += '<div class="row g-3 mb-4">';
@@ -1541,7 +1581,14 @@
             if (vid.includes('youtube.com') || vid.includes('youtu.be')) {
               html += '<iframe src="' + vid + '" allowfullscreen></iframe>';
             } else {
-              html += '<video controls preload="metadata" class="w-100 h-100"><source src="' + vid + '" type="video/mp4"></video>';
+              html += '<video controls preload="metadata" class="w-100 h-100" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">';
+              html += '<source src="' + vid + '" type="video/mp4">';
+              html += '</video>';
+              html += '<div class="w-100 h-100 bg-dark text-white p-3 d-flex flex-column align-items-center justify-content-center text-center" style="display:none;">';
+              html += '<i class="bi bi-film fs-1 text-warning mb-2"></i>';
+              html += '<span class="fw-bold small">Demostración Multimedia</span>';
+              html += '<p class="text-secondary extra-small mb-0 mt-1" style="font-size:0.75rem;">Video HD disponible en el entorno local o repositorio de desarrollo.</p>';
+              html += '</div>';
             }
             html += '</div>';
             html += '</div>';
@@ -1550,7 +1597,7 @@
           html += '</div>';
         }
 
-        // Sección de Fotos si existen (1 o varias)
+        // Sección de Fotos si existen
         if (hasPhotos) {
           html += '<h6 class="fw-bold my-3 text-dark d-flex align-items-center"><i class="bi bi-images text-primary fs-5 me-2"></i> Capturas e Imágenes (' + allPhotos.length + ')</h6>';
           html += '<div class="row g-3">';
@@ -1562,16 +1609,12 @@
 
         html += '</div>';
       } else {
-        // Mensaje interactivo cuando aún no se guardan archivos en la carpeta
-        html += '<div class="text-center py-2">';
-        html += '<div class="alert alert-light border rounded-4 shadow-sm p-4 text-start">';
-        html += '<div class="d-flex align-items-center mb-3"><i class="bi bi-magic text-primary display-5 me-3"></i><div><h6 class="fw-bold mb-0 fs-5 text-dark">Detección Automática Lista</h6><code class="fs-6 text-primary">' + media.folder + '</code></div></div>';
-        html += '<p class="text-secondary small mb-3">Solo guarda tus fotos o videos en esta carpeta. El sistema los detectará automáticamente sin que tengas que escribir código.</p>';
-        html += '<div class="p-3 bg-light border rounded-3 text-secondary small">';
-        html += '<strong>Nombres aceptados automáticamente:</strong><br>';
-        html += '🎥 <strong>Videos:</strong> <code>demo.mp4</code>, <code>video.mp4</code>, <code>recorrido.mp4</code>, <code>1.mp4</code><br>';
-        html += '📷 <strong>Fotos:</strong> <code>1.jpg</code>, <code>1.png</code>, <code>2.jpg</code>, <code>2.png</code>, <code>foto1.jpg</code>, <code>captura1.png</code>, <code>demo.jpg</code>';
-        html += '</div>';
+        // Mensaje elegante y profesional cuando no hay contenido multimedia cargado
+        html += '<div class="text-center py-4 px-2">';
+        html += '<div class="p-4 bg-light border rounded-4 shadow-sm text-center">';
+        html += '<i class="bi bi-folder-symlink display-4 text-primary mb-3 d-inline-block"></i>';
+        html += '<h5 class="fw-bold text-dark mb-2">Contenido Multimedia en Proceso</h5>';
+        html += '<p class="text-secondary small mb-0">Las capturas y demostraciones en video de este proyecto se están actualizando continuamente.</p>';
         html += '</div>';
         html += '</div>';
       }
