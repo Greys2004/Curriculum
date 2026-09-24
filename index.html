@@ -40,6 +40,15 @@
 
 <body>
 
+  <div class="language-switcher">
+    <i class="bi bi-translate" aria-hidden="true"></i>
+    <label for="language-select">Idioma</label>
+    <select id="language-select">
+      <option value="es" lang="es">Español</option>
+      <option value="en" lang="en">English</option>
+    </select>
+  </div>
+
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
@@ -1440,7 +1449,7 @@
         <div class="modal-header border-0 bg-dark text-white rounded-top-4">
           <h5 class="modal-title fw-bold" id="galleryModalTitle"><i class="bi bi-images me-2 text-primary"></i> Galería
             de Multimedia</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body p-4" id="galleryModalBody">
           <!-- Dynamic content inserted by openGallery JS function -->
@@ -1516,6 +1525,7 @@
       }
       if (counter) {
         counter.innerText = 'Video ' + (index + 1) + ' de ' + total;
+        if (window.portfolioLanguage) window.portfolioLanguage.translate(counter);
       }
 
       var btns = document.querySelectorAll('.video-nav-btn');
@@ -1615,8 +1625,11 @@
       }
 
       bodyElem.innerHTML = html;
+      if (window.portfolioLanguage) window.portfolioLanguage.translate(document.getElementById('galleryModal'));
     }
   </script>
+
+  <script src="assets/js/language.js"></script>
 
 </body>
 

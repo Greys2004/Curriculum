@@ -131,16 +131,25 @@
    * Hero type effect
    */
   const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
+  let heroTyped;
+  const startHeroTyping = () => {
+    if (heroTyped) heroTyped.destroy();
+    const strings = typed.getAttribute('data-typed-items').split(',');
+    if (typeof Typed === 'undefined') {
+      typed.textContent = strings[0];
+      return;
+    }
+    heroTyped = new Typed('.typed', {
+      strings,
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000
     });
+  };
+  if (typed) {
+    startHeroTyping();
+    document.addEventListener('languagechange', startHeroTyping);
   }
 
   /**
