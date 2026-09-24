@@ -184,15 +184,18 @@
     });
   }
 
-  const selector = document.getElementById('language-select');
+  const languageToggle = document.getElementById('language-toggle');
   const typed = document.querySelector('.typed');
   const spanishRoles = typed.getAttribute('data-typed-items');
   function setLanguage(value) {
     language = value === 'en' ? 'en' : 'es';
     document.documentElement.lang = language;
     document.title = language === 'en' ? 'Greys Almanza Portfolio' : 'Portafolio Greys Almanza';
-    selector.value = language;
     translate(document.body);
+    languageToggle.textContent = language.toUpperCase();
+    const toggleLabel = language === 'en' ? 'Switch to Spanish' : 'Cambiar a inglés';
+    languageToggle.setAttribute('aria-label', toggleLabel);
+    languageToggle.title = toggleLabel;
     typed.setAttribute('data-typed-items', language === 'en'
       ? 'Junior Full Stack Developer,Software Engineering Student,Web and Mobile App Creator'
       : spanishRoles);
@@ -202,7 +205,7 @@
   }
 
   window.portfolioLanguage = { translate };
-  selector.addEventListener('change', () => setLanguage(selector.value));
+  languageToggle.addEventListener('click', () => setLanguage(language === 'es' ? 'en' : 'es'));
   let savedLanguage;
   try { savedLanguage = localStorage.getItem('portfolio-language'); } catch (_) { /* Default to Spanish. */ }
   setLanguage(savedLanguage);

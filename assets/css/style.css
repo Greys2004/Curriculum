@@ -16,32 +16,35 @@ body {
 
 .language-switcher {
   position: fixed;
-  top: 15px;
-  right: 70px;
+  top: 20px;
+  right: 65px;
   z-index: 9998;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid #465166;
-  border-radius: 12px;
-  background: #040b14;
-  color: #fff;
-  box-shadow: 0 3px 16px #0003;
-  font-size: 14px;
-}
-
-.language-switcher select {
-  min-height: 32px;
-  border: 1px solid #68758c;
-  border-radius: 6px;
-  padding: 4px 6px;
-  background: #212431;
-  color: #fff;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #354154;
+  border-radius: 50%;
+  background: #111925;
+  color: #bcc7d5;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   cursor: pointer;
+  line-height: 1;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
-.language-switcher select:focus-visible {
+.language-switcher:hover {
+  background: #243247;
+  color: #fff;
+}
+
+.language-switcher:focus-visible {
   outline: 3px solid #37b3ed;
   outline-offset: 3px;
 }
@@ -50,8 +53,8 @@ body {
   .language-switcher { right: 20px; }
 }
 
-@media (max-width: 380px) {
-  .language-switcher label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (prefers-reduced-motion: reduce) {
+  .language-switcher { transition: none; }
 }
 
 /* Ensure all sections are always 100% visible regardless of scroll animations */
