@@ -47,20 +47,41 @@
    */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
+    let position = window.scrollY + (window.innerHeight * 0.35)
+    let isBottom = (window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 60
+    if (isBottom) {
+      navbarlinks.forEach(l => l.classList.remove('active'))
+      if (navbarlinks.length > 0) navbarlinks[navbarlinks.length - 1].classList.add('active')
+      return
+    }
+    let activeHash = ''
+    let sections = navbarlinks.map(l => l.hash ? select(l.hash) : null).filter(Boolean)
+    sections.forEach(section => {
+      let top = section.offsetTop - 100
+      let height = section.offsetHeight
+      if (position >= top && position < (top + height)) { activeHash = '#' + section.id }
     })
+    if (!activeHash && window.scrollY < 200) activeHash = '#hero'
+    if (activeHash) {
+      navbarlinks.forEach(navbarlink => {
+        if (navbarlink.hash === activeHash) navbarlink.classList.add('active')
+        else navbarlink.classList.remove('active')
+      })
+      return
+    }
+
+
+
+
+
+
+
+
+
+
   }
   window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+  document.addEventListener('scroll', navbarlinksActive, { passive: true })
 
   /**
    * Scrolls to an element with header offset
@@ -112,6 +133,8 @@
         navbarToggle.classList.toggle('bi-list')
         navbarToggle.classList.toggle('bi-x')
       }
+      select('#navbar .scrollto', true).forEach(l => l.classList.remove('active'))
+      this.classList.add('active')
       scrollto(this.hash)
     }
   }, true)

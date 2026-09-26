@@ -310,14 +310,32 @@ h6 {
   z-index: 1;
 }
 
+#hero {
+  text-align: center !important;
+}
+
+@media (min-width: 1200px) {
+  #hero {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+}
+
 #hero .hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+  margin: 0 auto !important;
   position: relative;
   z-index: 2;
   min-width: 300px;
 }
 
 #hero h1 {
-  margin: 0 0 10px 0;
+  margin: 0 auto 10px auto !important;
+  text-align: center !important;
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
@@ -326,7 +344,8 @@ h6 {
 
 #hero p {
   color: #fff;
-  margin-bottom: 50px;
+  margin: 0 auto 30px auto !important;
+  text-align: center !important;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
@@ -2083,6 +2102,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
               #020617;
 }
 
+#hero {
+  text-align: center;
+}
+
+#hero .hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .hero-badge-tag {
   display: inline-flex;
   align-items: center;
@@ -2096,7 +2129,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
 }
 
 #hero h1 {
@@ -2112,8 +2145,9 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
-  margin-top: 30px;
+  margin: 30px auto 0 auto;
 }
 
 .btn-hero-primary {
@@ -2158,11 +2192,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 /* Hero Stats Banner Strip */
 .hero-stats-banner {
-  margin-top: 45px;
+  margin: 45px auto 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 16px;
   max-width: 680px;
+  width: 100%;
 }
 
 .hero-stat-card {
@@ -2619,10 +2654,11 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   }
 
 /* ==========================================================================
-   Modern & Elegant Section Headers
+   Modern & Harmonious Section Headers & Divisions
    ========================================================================== */
 .section-title {
-  padding-bottom: 30px;
+  padding-bottom: 28px;
+  text-align: center !important;
   position: relative;
 }
 
@@ -2636,51 +2672,54 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   padding-bottom: 16px;
   position: relative;
   display: inline-block;
+  text-align: center !important;
 }
 
-/* Dual-color Gradient Accent Underline */
+/* Dual-color Gradient Accent Underline Centered */
 .section-title h2::after {
-  content: '';
-  position: absolute;
-  display: block;
+  content: '' !important;
+  position: absolute !important;
+  display: block !important;
   width: 50px;
   height: 4px;
-  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%) !important;
   border-radius: 4px;
   bottom: 0;
-  left: 0;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-title:hover h2::after {
-  width: 75px;
-}
-
-/* Centered Title Variant */
-.section-title.text-center h2::after {
-  left: 50%;
-  transform: translateX(-50%);
+  width: 80px;
 }
 
 .section-title p {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.025rem;
   color: #64748b;
   margin-bottom: 0;
   font-weight: 400;
   line-height: 1.6;
-}
-
-.section-title.text-center p {
-  max-width: 650px;
+  max-width: 660px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Adjust section padding for clear separation and structure */
+/* Clear section padding and visual boundary lines */
 section {
-  padding: 60px 0;
+  padding: 55px 0;
   overflow: hidden;
+  position: relative;
+}
+
+/* Subtly separate stacked sections with a refined divider line */
+section + section {
+  border-top: 1px solid #e2e8f0;
+}
+
+.section-bg {
+  background-color: #f8fafc !important;
 }
 
 
