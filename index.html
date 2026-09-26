@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -51,6 +51,9 @@
       <div class="profile">
         <img src="assets/img/miFoto.jpeg" alt="Greys Almanza" class="img-fluid rounded-circle">
         <h1 class="text-light text-center"><a href="index.html">Greys Alexa Almanza Vega</a></h1>
+        <div class="status-badge-header mx-auto mb-2">
+          <span class="status-pulse-dot"></span> <span>Disponible para trabajar</span>
+        </div>
 
         <!-- Social links -->
         <div class="social-links mt-3 text-center">
@@ -91,6 +94,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container">
+      <div class="hero-badge-tag"><i class="bi bi-code-slash"></i> Software Engineer &amp; Full Stack Developer</div>
       <h1>Greys Almanza</h1>
       <p>Soy <span class="typed"
           data-typed-items="Desarrolladora Full Stack Jr., Estudiante de Ing. de Software, Creadora de Aplicaciones Web y Móviles"></span>
@@ -102,6 +106,26 @@
         <a href="assets/pdf/cv.pdf" download="CV_Greys_Almanza.pdf" target="_blank" class="btn-hero-secondary"><i
             class="bi bi-file-earmark-pdf"></i> Descargar CV</a>
       </div>
+
+      <!-- Hero Stats Banner Strip -->
+      <div class="hero-stats-banner">
+        <div class="hero-stat-card">
+          <div class="hero-stat-number">9.8</div>
+          <div class="hero-stat-label">Promedio GPA</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-number">1+ Año</div>
+          <div class="hero-stat-label">Exp. Laboral</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-number">10+</div>
+          <div class="hero-stat-label">Proyectos</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-number">2</div>
+          <div class="hero-stat-label">Cert. AWS</div>
+        </div>
+      </div>
     </div>
   </section><!-- End Hero -->
 
@@ -111,6 +135,7 @@
       <div class="container">
 
         <div class="section-title">
+
           <h2>Acerca de mí</h2>
           <p>Mi nombre es <strong>Greys Alexa Almanza Vega</strong> y actualmente me encuentro cursando el octavo
             semestre de la carrera de Ingeniería de Software y Sistemas Computacionales en la Universidad de La Salle
@@ -169,10 +194,22 @@
       <div class="container">
 
         <div class="section-title">
+
           <h2>Aptitudes</h2>
           <p>Mis habilidades y tiempo de experiencia</p>
         </div>
 
+        <div class="skills-filter-nav">
+          <button type="button" class="skills-filter-btn active" onclick="filterSkills('all', this)"><i class="bi bi-grid-fill"></i> <span>Todas</span></button>
+          <button type="button" class="skills-filter-btn" onclick="filterSkills('languages', this)"><i class="bi bi-code-slash"></i> <span>Lenguajes</span></button>
+          <button type="button" class="skills-filter-btn" onclick="filterSkills('frameworks', this)"><i class="bi bi-cpu-fill"></i> <span>Frameworks &amp; Tech</span></button>
+          <button type="button" class="skills-filter-btn" onclick="filterSkills('databases', this)"><i class="bi bi-database-fill"></i> <span>Bases de Datos</span></button>
+          <button type="button" class="skills-filter-btn" onclick="filterSkills('devops', this)"><i class="bi bi-cloud-arrow-up-fill"></i> <span>DevOps &amp; Cloud</span></button>
+          <button type="button" class="skills-filter-btn" onclick="filterSkills('tools', this)"><i class="bi bi-tools"></i> <span>Herramientas</span></button>
+          <button type="button" class="skills-filter-btn" onclick="filterSkills('idiomas', this)"><i class="bi bi-translate"></i> <span>Idiomas</span></button>
+        </div>
+
+        <div data-skill-group="languages">
         <h3 class="skills-category"><i class="bi bi-code-slash text-primary me-2"></i> Lenguajes de Programación</h3>
         <div class="skills-grid">
 
@@ -226,6 +263,9 @@
 
         </div>
 
+        </div>
+
+        <div data-skill-group="languages">
         <h3 class="skills-category"><i class="bi bi-filetype-html text-danger me-2"></i> Lenguajes de Marcado y Estilos
         </h3>
         <div class="skills-grid">
@@ -248,6 +288,9 @@
 
         </div>
 
+        </div>
+
+        <div data-skill-group="frameworks">
         <h3 class="skills-category"><i class="bi bi-cpu-fill text-primary me-2"></i> Frameworks y Tecnologías</h3>
         <div class="skills-grid">
 
@@ -341,6 +384,9 @@
 
         </div>
 
+        </div>
+
+        <div data-skill-group="databases">
         <h3 class="skills-category"><i class="bi bi-database-fill text-info me-2"></i> Bases de Datos</h3>
         <div class="skills-grid">
 
@@ -410,6 +456,9 @@
 
         </div>
 
+        </div>
+
+        <div data-skill-group="devops">
         <h3 class="skills-category"><i class="bi bi-cloud-arrow-up-fill text-success me-2"></i> DevOps, Cloud y Testing
         </h3>
         <div class="skills-grid">
@@ -472,6 +521,9 @@
 
         </div>
 
+        </div>
+
+        <div data-skill-group="tools">
         <h3 class="skills-category"><i class="bi bi-tools text-secondary me-2"></i> Herramientas, Diseño &amp; Otros
         </h3>
         <div class="skills-grid">
@@ -538,6 +590,9 @@
 
         </div>
 
+        </div>
+
+        <div data-skill-group="idiomas">
         <h3 class="skills-category"><i class="bi bi-translate text-primary me-2"></i> Idiomas</h3>
         <div class="skills-grid">
 
@@ -565,6 +620,7 @@
             </div>
           </div>
 
+        </div>
         </div>
       </div>
     </section>
@@ -626,6 +682,7 @@
       <div class="container">
 
         <div class="section-title">
+
           <h2>Mi formación</h2>
         </div>
 
@@ -686,6 +743,7 @@
           <div class="container">
 
             <div class="section-title">
+
               <h2>Experiencia Laboral</h2>
             </div>
 
@@ -768,14 +826,23 @@
           <div class="container">
 
             <div class="section-title text-center mb-5">
+
               <h2>Portafolio</h2>
               <p>Proyectos destacados de desarrollo de software</p>
+            </div>
+
+            <div class="portfolio-filter-nav mb-5">
+              <button type="button" class="portfolio-filter-btn active" onclick="filterPortfolio('all', this)"><span>Todos los Proyectos</span></button>
+              <button type="button" class="portfolio-filter-btn" onclick="filterPortfolio('fullstack', this)"><span>Full-Stack &amp; Web</span></button>
+              <button type="button" class="portfolio-filter-btn" onclick="filterPortfolio('mobile', this)"><span>Mobile Apps</span></button>
+              <button type="button" class="portfolio-filter-btn" onclick="filterPortfolio('cloud', this)"><span>Cloud &amp; IA</span></button>
+              <button type="button" class="portfolio-filter-btn" onclick="filterPortfolio('3d', this)"><span>VR &amp; 3D</span></button>
             </div>
 
             <div class="row g-4 justify-content-center">
 
               <!-- Proyecto Django -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="fullstack">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-django">
                     <div class="banner-sidebar">BACKEND</div>
@@ -799,7 +866,7 @@
               </div>
 
               <!-- Proyecto MAUI -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="mobile">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-maui">
                     <div class="banner-sidebar">MOBILE</div>
@@ -823,7 +890,7 @@
               </div>
 
               <!-- Proyecto Kotlin -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="mobile">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-kotlin">
                     <div class="banner-sidebar">ANDROID</div>
@@ -847,7 +914,7 @@
               </div>
 
               <!-- Proyecto HTML/CSS -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="fullstack">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-web">
                     <div class="banner-sidebar">FRONTEND</div>
@@ -871,7 +938,7 @@
               </div>
 
               <!-- Procesamiento de imágenes -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="cloud 3d">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-image-proc">
                     <div class="banner-sidebar">VISION</div>
@@ -896,7 +963,7 @@
               </div>
 
               <!-- Detección de Pastillas Streamlit -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="cloud">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-pill-det">
                     <div class="banner-sidebar">AI OPENCV</div>
@@ -931,7 +998,7 @@
               </div>
 
               <!-- Proyecto Jetpack Compose (RecetarioApp) -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="mobile">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-recetario">
                     <div class="banner-sidebar">COMPOSE</div>
@@ -958,7 +1025,7 @@
               </div>
 
               <!-- Sistema de Gestión de Tiendas -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="fullstack">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-store">
                     <div class="banner-sidebar">FULLSTACK</div>
@@ -992,7 +1059,7 @@
               </div>
 
               <!-- NatureApp Cloud & AI -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="cloud fullstack">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-nature">
                     <div class="banner-sidebar">CLOUD AWS</div>
@@ -1027,7 +1094,7 @@
               </div>
 
               <!-- Proyecto Realidad Virtual & 3D -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="3d">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-vr">
                     <div class="banner-sidebar">VR &amp; 3D</div>
@@ -1051,7 +1118,7 @@
               </div>
 
               <!-- Reportes Urbanos -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="fullstack cloud">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-urban">
                     <div class="banner-sidebar">WEB</div>
@@ -1088,7 +1155,7 @@
               </div>
 
               <!-- VetCare -->
-              <div class="col-lg-4 col-md-6">
+              <div class="col-lg-4 col-md-6" data-portfolio-category="fullstack">
                 <div class="card portfolio-card h-100 shadow-sm">
                   <div class="portfolio-banner banner-vet">
                     <div class="banner-sidebar">FULLSTACK</div>
@@ -1126,6 +1193,7 @@
           <div class="container">
 
             <div class="section-title text-center mb-5">
+
               <h2>Certificaciones y Logros</h2>
               <p>Cursos, especializaciones y reconocimientos que avalan mis competencias técnicas.</p>
             </div>
@@ -1239,34 +1307,65 @@
           <div class="container">
 
             <div class="section-title">
-              <h2>Habilidades</h2>
+
+              <h2>Habilidades Personales</h2>
+              <p>Fortalezas interpersonales y metodológicas que caracterizan mi desempeño profesional.</p>
               <!--  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
             </div>
 
-            <div class="row">
-              <div class="col-lg-4 col-md-6 icon-box">
-                <div class="icon"><i class="bi bi-briefcase"></i></div>
-                <h4 class="title"><a href="">Responsable</a></h4>
+            <div class="row g-4">
+              <div class="col-lg-4 col-md-6">
+                <div class="soft-skill-card">
+                  <div class="soft-skill-icon-halo bg-primary bg-opacity-10 text-primary"><i class="bi bi-briefcase"></i></div>
+                  <h4>Responsable</h4>
+                  <p>Cumplimiento impecable con entregables, fechas límite y estándares de calidad acordados.</p>
+                </div>
+
               </div>
-              <div class="col-lg-4 col-md-6 icon-box">
-                <div class="icon"><i class="bi bi-card-checklist"></i></div>
-                <h4 class="title"><a href="">Dedicada</a></h4>
+              <div class="col-lg-4 col-md-6">
+                <div class="soft-skill-card">
+                  <div class="soft-skill-icon-halo bg-success bg-opacity-10 text-success"><i class="bi bi-card-checklist"></i></div>
+                  <h4>Dedicada</h4>
+                  <p>Compromiso total con la mejora continua, aprendizaje constante y superación de expectativas.</p>
+                </div>
+
+
               </div>
-              <div class="col-lg-4 col-md-6 icon-box">
-                <div class="icon"><i class="bi bi-bar-chart"></i></div>
-                <h4 class="title"><a href="">Resolución de problemas</a></h4>
+              <div class="col-lg-4 col-md-6">
+                <div class="soft-skill-card">
+                  <div class="soft-skill-icon-halo bg-warning bg-opacity-10 text-warning"><i class="bi bi-lightning-charge"></i></div>
+                  <h4>Resolución de problemas</h4>
+                  <p>Enfoque analítico y ágil para identificar fallas, diagnosticar causas raíz y dar soluciones eficientes.</p>
+                </div>
+
+
               </div>
-              <div class="col-lg-4 col-md-6 icon-box">
-                <div class="icon"><i class="bi bi-binoculars"></i></div>
-                <h4 class="title"><a href="">Creatividad</a></h4>
+              <div class="col-lg-4 col-md-6">
+                <div class="soft-skill-card">
+                  <div class="soft-skill-icon-halo bg-info bg-opacity-10 text-info"><i class="bi bi-lightbulb"></i></div>
+                  <h4>Creatividad</h4>
+                  <p>Capacidad para innovar en arquitectura, experiencia de usuario y diseño de software visual.</p>
+                </div>
+
+
               </div>
-              <div class="col-lg-4 col-md-6 icon-box">
-                <div class="icon"><i class="bi bi-brightness-high"></i></div>
-                <h4 class="title"><a href="">Organización</a></h4>
+              <div class="col-lg-4 col-md-6">
+                <div class="soft-skill-card">
+                  <div class="soft-skill-icon-halo bg-danger bg-opacity-10 text-danger"><i class="bi bi-kanban"></i></div>
+                  <h4>Organización</h4>
+                  <p>Gestión estructurada del tiempo, prioridades de desarrollo y documentación clara del código.</p>
+                </div>
+
+
               </div>
-              <div class="col-lg-4 col-md-6 icon-box">
-                <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-                <h4 class="title"><a href="">Toma de desiciones</a></h4>
+              <div class="col-lg-4 col-md-6">
+                <div class="soft-skill-card">
+                  <div class="soft-skill-icon-halo" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;"><i class="bi bi-compass"></i></div>
+                  <h4>Toma de decisiones</h4>
+                  <p>Criterio técnico sólido para elegir tecnologías adecuadas y optimizar recursos del proyecto.</p>
+                </div>
+
+
               </div>
             </div>
 
@@ -1366,33 +1465,65 @@
           <div class="container">
 
             <div class="section-title">
+
               <h2>Mi contacto</h2>
               <p>Estoy a su servicio. Muchas gracias por tomarse el tiempo de consultar mi portafolio.</p>
             </div>
 
-            <div class="row">
+            <div class="row g-4">
 
-              <div class="col-lg-12">
-                <div class="info d-flex justify-content-around flex-wrap gap-4">
-                  <div class="address">
-                    <i class="bi bi-geo-alt"></i>
+              <div class="col-lg-4 col-md-6">
+                <div class="contact-card-modern">
+                  <div class="contact-icon-box"><i class="bi bi-geo-alt-fill"></i></div>
+                  <div class="contact-info-text">
                     <h4>Ubicación:</h4>
                     <p>León, Guanajuato, México</p>
                   </div>
+                </div>
+              </div>
 
-                  <div class="email">
-                    <i class="bi bi-envelope"></i>
-                    <h4>Correo:</h4>
-                    <p><a href="mailto:greysalexaalmanzavega123@gmail.com">greysalexaalmanzavega123@gmail.com</a></p>
-                  </div>
-
-                  <div class="phone">
-                    <i class="bi bi-phone"></i>
-                    <h4>Teléfono:</h4>
-                    <p><a href="https://wa.link/8lle9d" target="_blank">+52 771 709 1710</a></p>
+              <div class="col-lg-4 col-md-6">
+                <div class="contact-card-modern">
+                  <div class="contact-icon-box" style="background: rgba(16, 185, 129, 0.1); color: #10b981;"><i class="bi bi-envelope-fill"></i></div>
+                  <div class="contact-info-text">
+                    <div class="d-flex align-items-center justify-content-between gap-2">
+                      <h4>Correo:</h4>
+                      <button type="button" class="btn-copy-email" onclick="copyEmail('greysalexaalmanzavega123@gmail.com')"><i class="bi bi-clipboard me-1"></i>Copiar</button>
+                    </div>
+                    <p class="text-break"><a href="mailto:greysalexaalmanzavega123@gmail.com" class="text-decoration-none">greysalexaalmanzavega123@gmail.com</a></p>
                   </div>
                 </div>
               </div>
+
+              <div class="col-lg-4 col-md-12">
+                <div class="contact-card-modern">
+                  <div class="contact-icon-box" style="background: rgba(37, 211, 102, 0.1); color: #25d366;"><i class="bi bi-whatsapp"></i></div>
+                  <div class="contact-info-text">
+                    <h4>Teléfono / WhatsApp:</h4>
+                    <p><a href="https://wa.link/8lle9d" target="_blank" class="fw-bold text-success text-decoration-none">+52 771 709 1710 <i class="bi bi-box-arrow-up-right ms-1 small"></i></a></p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
 
@@ -1618,6 +1749,70 @@
 
       bodyElem.innerHTML = html;
       if (window.portfolioLanguage) window.portfolioLanguage.translate(document.getElementById('galleryModal'));
+    }
+  </script>
+
+  <!-- Toast Notification Alert -->
+  <div id="toastCopy" class="toast-copy-notify">
+    <i class="bi bi-check-circle-fill text-success fs-5"></i>
+    <span id="toastCopyText">¡Correo copiado al portapapeles!</span>
+  </div>
+
+  <!-- Interactive Portfolio & Skills Filtering Scripts -->
+  <script>
+    function filterSkills(group, btn) {
+      var buttons = document.querySelectorAll('.skills-filter-btn');
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+
+      var skillGroups = document.querySelectorAll('[data-skill-group]');
+      skillGroups.forEach(function(el) {
+        if (group === 'all' || el.getAttribute('data-skill-group') === group) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    function filterPortfolio(cat, btn) {
+      var buttons = document.querySelectorAll('.portfolio-filter-btn');
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+
+      var items = document.querySelectorAll('[data-portfolio-category]');
+      items.forEach(function(el) {
+        var categories = (el.getAttribute('data-portfolio-category') || '').split(' ');
+        if (cat === 'all' || categories.includes(cat)) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    function showToast(msg) {
+      var toast = document.getElementById('toastCopy');
+      var text = document.getElementById('toastCopyText');
+      if (toast && text) {
+        text.innerText = msg;
+        toast.classList.add('show');
+        setTimeout(function() {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+    }
+
+    function copyEmail(email) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(function() {
+          showToast('¡Correo copiado al portapapeles!');
+        }).catch(function() {
+          prompt('Copia el correo:', email);
+        });
+      } else {
+        prompt('Copia el correo:', email);
+      }
     }
   </script>
 

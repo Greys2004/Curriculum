@@ -133,7 +133,30 @@
     'Demostración en Video': 'Video demonstration',
     'Contenido Multimedia en Proceso': 'Multimedia content in progress',
     'Las capturas y demostraciones en video de este proyecto se están actualizando continuamente.': 'Screenshots and video demonstrations of this project are continually being updated.',
-    'Cerrar': 'Close'
+    'Cerrar': 'Close',
+    '🟢 Disponible para trabajar': '🟢 Open to work opportunities',
+    '9.8 Promedio': '9.8 GPA',
+    '1+ Año Exp': '1+ Yr Exp',
+    '10+ Proyectos': '10+ Projects',
+    '2 Certs AWS': '2 AWS Certs',
+    'Todos': 'All',
+    'Lenguajes': 'Languages',
+    'DevOps & Herramientas': 'DevOps & Tools',
+    'DevOps / Nube': 'DevOps / Cloud',
+    'Full Stack': 'Full Stack',
+    'Móvil': 'Mobile',
+    'Nube / Cloud': 'Cloud',
+    '3D / VR': '3D / VR',
+    'Copiar': 'Copy',
+    '¡Correo copiado al portapapeles!': 'Email copied to clipboard!',
+    'Teléfono / WhatsApp:': 'Phone / WhatsApp:',
+    'PERFIL PROFESIONAL': 'PROFESSIONAL PROFILE',
+    'COMPETENCIAS': 'COMPETENCIES',
+    'PORTAFOLIO': 'PORTFOLIO',
+    'EDUCACIÓN': 'EDUCATION',
+    'EXPERIENCIA': 'EXPERIENCE',
+    'CERTIFICACIONES': 'CERTIFICATIONS',
+    'CONTACTO': 'CONTACT'
   };
 
   const normalize = text => text.replace(/\s+/g, ' ').trim();
